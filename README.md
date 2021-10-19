@@ -17,3 +17,8 @@ https://github.com/git-guides/install-git
 https://nodejs.org/en/download/
 
 # Cloning a Repository
+Create a folder for your college projects. Go into that folder.
+
+Inside that college folder, run:
+
+git clone https://github.com/eoinco/nci_2021.git
