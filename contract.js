@@ -4,7 +4,7 @@ const Web3 = require("web3");
 
 // instantiate web3
 
-const rpcURL = "https://ropsten.infura.io/v3/a01337991aa746fca93b4e9c40c21ebd";
+const rpcURL = "https://ropsten.infura.io/v3/b537bfe7189243cebb6ee42982464310";
 const web3 = new Web3(rpcURL);
 console.log("connected to web3");
 
