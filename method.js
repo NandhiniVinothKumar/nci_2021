@@ -13,12 +13,14 @@ privateKey = Buffer.from(process.env.SUPER_SECRET_PRIVATE_KEY, 'hex')
 
 // get the ABI (interface) for our contract
 const abi = [
+	
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
 	{
+		
 		"anonymous": false,
 		"inputs": [
 			{
@@ -69,6 +71,88 @@ const abi = [
 		"type": "event"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "recipient",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"inputs": [],
 		"name": "_totalSupply",
 		"outputs": [
@@ -103,30 +187,6 @@ const abi = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -212,59 +272,6 @@ const abi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "recipient",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	}
 ]
 // instantiate web3 with the infura rpc url
@@ -288,7 +295,6 @@ const sendTx = async(raw) => {
 const transferToken = async(toAccount, amount) => {
 
     // generate a nonce
-
     let txCount = await web3.eth.getTransactionCount(owner);
     console.log("tx count is " + txCount);
 
@@ -301,9 +307,10 @@ const transferToken = async(toAccount, amount) => {
         data: contract.methods.transfer(toAccount, amount).encodeABI()
     }
 
+    // assign a chain id (ropsten: 3)
     const tx = new Tx(txObject, {chain: 'ropsten', hardfork: 'petersburg'})
 
-    // sign the tx
+    // sign the tx - THIS USES THE SECRET PRIVATE KEY
     tx.sign(privateKey);
 
     console.log("signed transaction with super secret private key");
@@ -313,16 +320,11 @@ const transferToken = async(toAccount, amount) => {
     const raw = '0x' + serializedTx.toString('hex');
 
     console.log('about to send transaction' + raw)
-    let txHash = await sendTx(raw);
-    console.log("transaction hash: " + txHash.transactionHash)
-    console.log("transaction in block: " + txHash.blockNumber)
+
+    // broadcast the transaction
+    let txResponse = await sendTx(raw);
+    console.log("transaction hash: " + txResponse.transactionHash)
+    console.log("transaction in block: " + txResponse.blockNumber)
 }
 
-
-// create a transaction to execute a method (transfer) on the contract
-
-// sign the transaction with our private key
-
-// broadcast the transaction
-
-transferToken("0x8B3DffAFC82610Eb0EeD76D9b8D410F8067841Fa", 123)
+module.exports = { transferToken }
