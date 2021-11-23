@@ -22,6 +22,11 @@ console.log("connected to web3");
 // get the ABI (interface) for our contract
 const abi = [
 	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
