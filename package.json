@@ -1,29 +1,30 @@
 {
-    "name": "nci",
-    "version": "1.0.0",
-    "description": "college project",
-    "main": "contract.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/NandhiniVinothKumar/nci_2021.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/NandhiniVinothKumar/nci_2021/issues"
-    },
-    "homepage": "https://github.com/NandhiniVinothKumar/nci_2021/#readme",
-    "dependencies": {
-        "big-number": "^2.0.0",
-        "bignumber.js": "^9.0.1",
-        "dotenv": "^10.0.0",
-        "ethereumjs-tx": "^2.1.2",
-        "express": "^4.17.1",
-        "fs": "0.0.1-security",
-        "web3": "^1.6.0"
-    }
+  "name": "nci",
+  "version": "1.0.0",
+  "description": "college project",
+  "main": "contract.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NandhiniVinothKumar/nci_2021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NandhiniVinothKumar/nci_2021/issues"
+  },
+  "homepage": "https://github.com/NandhiniVinothKumar/nci_2021/#readme",
+  "dependencies": {
+    "big-number": "^2.0.0",
+    "bignumber.js": "^9.0.1",
+    "dotenv": "^10.0.0",
+    "ethereumjs-tx": "^2.1.2",
+    "ethereumjs-wallet": "^1.0.2",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "keccak256": "^1.0.3",
+    "web3": "^1.6.0"
   }
-  
+}
