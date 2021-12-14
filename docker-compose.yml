@@ -2,7 +2,7 @@
 
 version: '3.7'
 services:
-  nci2021:
+  nci2021_lab:
     build:
       context: .
       dockerfile: Dockerfile
