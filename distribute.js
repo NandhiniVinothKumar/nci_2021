@@ -57,16 +57,7 @@ const distribute = async() => {
         // execute a ERC20transfer(ownerAddress, distributionAddresss[looper], distributionAmount);
         let retval = await method.transferToken(distributionAddresses[looper], distributionAmount)
     }
-    // loop through N accounts/addresses
-    // for each account, do a transfer of distroAmount
-
-
-
-    // let bal = new BigNumber(1000000000000000000000000000000) // this should be owner balance from smart contract
-    // let fivePerCent = bal.div(20)
-    // // then we need to divide fivePerCent by the number of addresses in the file
-    // let accounts = distributionAddresses.length
-    // console.log(` we have ${accounts} accounts in our file`) 
+ 
 
 }
 
