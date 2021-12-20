@@ -23,7 +23,7 @@
     "dotenv": "^10.0.0",
     "ethereumjs-tx": "^2.1.2",
     "ethereumjs-wallet": "^1.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "fs": "0.0.1-security",
     "keccak256": "^1.0.3",
     "sodium-native": "^3.3.0",
