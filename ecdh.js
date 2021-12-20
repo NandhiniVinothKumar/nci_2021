@@ -1,20 +1,5 @@
 var sodium = require("sodium-native");
 
-// encryption
-// decryption
-// signing/verification
-// key derivation (ed25519 - c25519 keys)
-// hashing
-// ecdh (elliptic curve diffie hellman)
-
-
-// what we'll do next week
-// ecdh
-// hashing
-// signature & verification
-// encryption and decryption
-// perfect forward secrecy (take a look at it)
-
 // Elliptic Curve Diffie Hellman
 // Alice has a public key and a private key
 // Bob has a public key and a private key
