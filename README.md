@@ -1,9 +1,18 @@
 
+
+# Pre-requistis #
+   Create a Account  in Ropsten Test Network using MetaMask
+
+   Deploy the ERC20 1 million fixed supply token and import into your account created in MetaMask
+
+   Create an account in infura using the https://infura.io/.   Then create a project, the project give us the endpoint which help us to route request for our etherum blockchain transactios.Open infura project, under general tab you will find the endpoints section, choose Ropsten netwrok which synchronizes with all our transcations
+
 # Readme #
 
 This is the readme for this project.  It will include any useful links and commands to run.
 
 ## Install Visual Studio Code ##
+
 
 ```https://code.visualstudio.com/Download```
 
@@ -23,9 +32,8 @@ Install following the instructions at the following web page:
 
 ## Cloning a Repository ##
 
-Create a folder for your college projects.  Go into that folder.
-
-Inside that college folder, run:
+Create a folder for in your system ,
+Then open GIT Bash, and navigate to the local folder then clone git repository using below cmd
 
 ```git clone https://github.com/NandhiniVinothKumar/nci_2021.git```
 
@@ -35,13 +43,10 @@ From the terminal in Visual Studio Code (or from the command line - as long as y
 
 ```git pull origin main```
 
-## for the moment ##
-
-you need git, nodejs and vs code installed.
 
 ## Validation Steps ##
 
-How to tell you have git installed:
+by running below cmd, we can chjeck whether git is installed or not.
 
 ```$git version```
 
@@ -49,15 +54,7 @@ How to tell you have node installed:
 
 ```$node -v```
 
-## Using your own repo ##
-
-First, create a repo in github.
-
-git clone into a folder
-
-make your changes
-
-then run the following commands:
+## Use following commands to push the code from visual studio terminal to the  repo ##
 
 ```$git add <your updated files>```
 
@@ -96,11 +93,11 @@ To POST to a route, execute the following CURL command:
 
 ### build a docker container ###
 
-```docker build -t nci/lab2021 .```
+``` docker build  . -t <dockeruserid>/<image-name>: <tag-name>```
 
 ### run the image ###
 
-```docker run -p 8090:8080 --name nci -d nci/lab2021```
+```docker run -p 8090:8080 –name <alias-name> -d <dockeruserid>/<image-name>: <tag-name>```
 
 ### kill a running container ###
 ```docker kill [name]```
